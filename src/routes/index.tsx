@@ -8,43 +8,47 @@ const MEMBERSHIP_URL =
   "https://shop.renunola.instapaytient.com/shop/renu-me-membership";
 const INSTAGRAM_URL = "https://www.instagram.com/renunola";
 
-const logoUrl =
-  "https://images.squarespace-cdn.com/content/v1/69c173d7cb0f3a419b07cd8c/88a8c580-7c08-4b63-82e1-469af3191c89/Copy+of+Renu+Templates+-+IG+45+%281%29.png?format=1500w";
+const logoUrl = "/assets/brand/renu-logo-clear.webp";
 
 const images = {
-  hero: "https://images.squarespace-cdn.com/content/v1/69c173d7cb0f3a419b07cd8c/ff498538-3498-4bd3-a57a-d7ece1487b7c/DSC07637.jpg",
-  treatment:
-    "https://images.squarespace-cdn.com/content/v1/69c173d7cb0f3a419b07cd8c/5489e6b8-cd1b-4d39-a897-0e6132a68932/DSC08008.jpg",
-  services:
-    "https://images.squarespace-cdn.com/content/v1/69c173d7cb0f3a419b07cd8c/cf2ed7aa-b209-43c0-9863-9dc43550d60a/DSC08075.jpg",
-  membership:
-    "https://images.squarespace-cdn.com/content/v1/69c173d7cb0f3a419b07cd8c/a8c73862-8b3c-4eb5-91ec-57874d2036fd/DSC07446.jpg",
-  shop: "https://images.squarespace-cdn.com/content/v1/69c173d7cb0f3a419b07cd8c/85284dec-3c87-4b18-950d-9cd342bfa5e9/3.png",
-  exterior:
-    "https://images.squarespace-cdn.com/content/v1/69c173d7cb0f3a419b07cd8c/202c8032-6abd-4e07-8d25-13c4767a7167/DSC07432.jpg",
+  hero: "/assets/brand/hero-provider.jpg",
+  treatment: "/assets/brand/consultation.jpg",
+  services: "/assets/brand/services-treatment.jpg",
+  membership: "/assets/brand/membership-room.jpg",
+  shop: "/assets/brand/shop-wellness.png",
+  exterior: "/assets/brand/exterior.jpg",
 };
 
 const trustHighlights = [
-  "Licensed medical professionals",
-  "Personalized treatment plans",
-  "New Orleans wellness destination",
+  {
+    value: "Licensed care",
+    label: "Treatments guided by experienced medical professionals.",
+  },
+  {
+    value: "Tailored plans",
+    label: "Aesthetic and wellness recommendations built around you.",
+  },
+  {
+    value: "Boutique setting",
+    label: "A calm New Orleans destination designed for comfort.",
+  },
 ];
 
 const services = [
   {
     title: "Neuro Modulators",
     description:
-      "Refine expression lines with thoughtful dosing and natural-looking results.",
+      "Soften expression lines with precise dosing and natural-looking movement.",
   },
   {
     title: "Weight Loss",
     description:
-      "Clinically guided plans built around your health, lifestyle, and goals.",
+      "Clinically guided programs shaped around your health, habits, and goals.",
   },
   {
     title: "IV Therapy",
     description:
-      "Hydration and vitamin infusions designed to support energy and recovery.",
+      "Hydration and vitamin infusions to support energy, recovery, and balance.",
   },
   {
     title: "NAD Therapy",
@@ -58,13 +62,21 @@ const services = [
   },
   {
     title: "Wellness Injections",
-    description: "Targeted wellness boosters tailored to how you want to feel.",
+    description:
+      "Targeted boosters selected for the way you want to feel and function.",
   },
   {
     title: "Skin Treatments",
     description:
-      "Facials, peels, microneedling, brows, lashes, and skin renewal services.",
+      "Facials, peels, microneedling, brows, lashes, and thoughtful skin renewal.",
   },
+];
+
+const membershipBenefits = [
+  "VIP Tox and IV therapy pricing",
+  "10% off medical-grade skincare",
+  "Monthly facial, peel, microneedling, brow, or lash service",
+  "Priority access to member-only offers",
 ];
 
 const contactItems = [
@@ -74,60 +86,80 @@ const contactItems = [
   ["Email", "nhu@renunola.com", "mailto:nhu@renunola.com"],
 ];
 
+function InstagramIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      className="h-5 w-5"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 function App() {
   return (
-    <main className="page-wrap px-4 pb-10 pt-10 sm:pt-14">
-      <section className="island-shell rise-in relative overflow-hidden rounded-[2.25rem] px-5 py-6 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
-        <div className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(198,155,79,0.28),transparent_66%)]" />
-        <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(23,19,15,0.16),transparent_66%)]" />
-        <div className="relative grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <div>
+    <main>
+      <section className="page-wrap relative px-4 pb-16 pt-12 sm:pt-16 lg:pb-24 lg:pt-20">
+        <div className="absolute left-4 top-8 hidden h-32 w-px bg-gradient-to-b from-transparent via-[var(--gold)] to-transparent lg:block" />
+        <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+          <div className="rise-in max-w-3xl">
             <img
               src={logoUrl}
-              alt="ReNu Nola logo"
-              className="mb-7 h-20 w-auto rounded-2xl border border-[rgba(198,155,79,0.24)] bg-white/75 object-contain p-3 shadow-[0_18px_40px_rgba(46,30,18,0.08)]"
+              alt="ReNu Health and Wellness logo"
+              className="mb-8 h-28 w-auto rounded-[1.5rem] bg-[rgba(255,247,232,0.78)] object-contain p-4 shadow-[0_18px_50px_rgba(33,25,18,0.1)] sm:h-32"
             />
-            <p className="island-kicker mb-3">ReNu Health and Wellness</p>
-            <h1 className="display-title mb-5 max-w-3xl text-5xl leading-[0.95] font-semibold text-[var(--sea-ink)] sm:text-7xl">
-              Refined aesthetics. Restorative wellness. Personalized care.
-            </h1>
-            <p className="mb-8 max-w-2xl text-base leading-8 text-[var(--sea-ink-soft)] sm:text-lg">
-              A New Orleans medical spa blending clinical expertise with a calm,
-              beauty-forward experience to help you look refreshed and feel your
-              best from the inside out.
+            <p className="island-kicker mb-4">
+              Medical aesthetics and wellness
             </p>
-            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <h1 className="display-title mb-6 text-6xl leading-[0.88] font-semibold text-[var(--sea-ink)] sm:text-7xl lg:text-8xl">
+              A private wellness destination for refined renewal.
+            </h1>
+            <p className="max-w-2xl text-base leading-8 text-[var(--sea-ink-soft)] sm:text-lg">
+              ReNu blends medical expertise with a serene, boutique spa
+              experience in New Orleans. Every treatment plan is personal,
+              thoughtful, and designed to help you look refreshed while feeling
+              cared for.
+            </p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
                 href={BOOK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-[rgba(198,155,79,0.42)] bg-[var(--sea-ink)] px-6 py-3 text-center text-xs font-bold uppercase tracking-[0.18em] text-white no-underline shadow-[0_16px_36px_rgba(23,19,15,0.18)] transition hover:-translate-y-0.5 hover:border-[rgba(198,155,79,0.75)] hover:bg-[var(--lagoon-deep)] hover:text-white"
+                className="button-primary"
               >
                 Book Online
               </a>
-              <a
-                href="#services"
-                className="rounded-full border border-[rgba(57,38,23,0.18)] bg-white/55 px-6 py-3 text-center text-xs font-bold uppercase tracking-[0.18em] text-[var(--sea-ink)] no-underline transition hover:-translate-y-0.5 hover:border-[rgba(198,155,79,0.55)] hover:bg-white/85"
-              >
+              <a href="#services" className="button-secondary">
                 Explore Services
               </a>
             </div>
           </div>
-          <div className="grid gap-3 sm:grid-cols-[0.82fr_1fr] lg:gap-4">
-            <div className="island-shell hidden overflow-hidden rounded-[1.5rem] sm:block lg:translate-y-8">
+
+          <div className="relative min-h-[520px] lg:min-h-[650px]">
+            <div className="absolute -right-4 top-0 h-[82%] w-[82%] overflow-hidden rounded-t-full rounded-b-[2.5rem] border border-[var(--line)] shadow-[0_34px_90px_rgba(33,25,18,0.18)] sm:right-0">
+              <img
+                src={images.hero}
+                alt="A ReNu Health and Wellness provider in the spa."
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <div className="island-shell absolute bottom-0 left-0 w-[66%] overflow-hidden rounded-[2rem] p-2 sm:w-[54%]">
               <img
                 src={images.treatment}
                 alt="A ReNu provider consulting with a guest in a treatment room."
-                className="h-full min-h-64 w-full object-cover"
+                className="h-64 w-full rounded-[1.55rem] object-cover sm:h-80"
                 loading="lazy"
               />
             </div>
-            <div className="island-shell overflow-hidden rounded-[1.75rem]">
-              <img
-                src={images.hero}
-                alt="A ReNu Health and Wellness provider smiling in the spa."
-                className="h-full min-h-80 w-full object-cover"
-              />
+            <div className="absolute bottom-12 right-2 max-w-[13rem] rounded-full border border-[rgba(211,167,92,0.42)] bg-[rgba(24,22,19,0.86)] px-5 py-4 text-center text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[var(--cream)] shadow-[0_18px_48px_rgba(24,22,19,0.28)] backdrop-blur-md sm:right-8">
+              Personal care in a calm lounge setting
             </div>
           </div>
         </div>
@@ -135,49 +167,68 @@ function App() {
 
       <section
         aria-label="ReNu care highlights"
-        className="mt-5 grid gap-3 sm:grid-cols-3"
+        className="border-y border-[var(--line)] bg-[rgba(255,251,244,0.48)]"
       >
-        {trustHighlights.map((highlight, index) => (
-          <div
-            key={highlight}
-            className="island-shell rise-in rounded-2xl px-5 py-4 text-center text-xs font-bold uppercase tracking-[0.16em] text-[var(--sea-ink)]"
-            style={{ animationDelay: `${index * 80 + 80}ms` }}
-          >
-            {highlight}
-          </div>
-        ))}
+        <div className="page-wrap grid gap-px px-4 sm:grid-cols-3">
+          {trustHighlights.map((highlight, index) => (
+            <div
+              key={highlight.value}
+              className="rise-in px-2 py-7 sm:px-7"
+              style={{ animationDelay: `${index * 80 + 80}ms` }}
+            >
+              <p className="display-title m-0 text-3xl font-semibold text-[var(--sea-ink)]">
+                {highlight.value}
+              </p>
+              <p className="m-0 mt-2 text-sm leading-6 text-[var(--sea-ink-soft)]">
+                {highlight.label}
+              </p>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section
         id="about"
         aria-labelledby="about-heading"
-        className="scroll-mt-28 pt-16"
+        className="page-wrap scroll-mt-28 px-4 py-20 lg:py-28"
       >
-        <div className="grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
-          <div className="island-shell overflow-hidden rounded-[1.75rem]">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div className="relative">
             <img
               src={images.exterior}
               alt="Exterior of ReNu Health and Wellness in New Orleans."
-              className="h-full min-h-72 w-full object-cover"
+              className="h-[420px] w-full rounded-[2rem] object-cover shadow-[0_28px_70px_rgba(33,25,18,0.14)]"
               loading="lazy"
             />
+            <div className="absolute -bottom-6 left-6 right-6 rounded-[1.25rem] border border-[rgba(211,167,92,0.34)] bg-[rgba(255,251,244,0.88)] p-5 shadow-[0_18px_46px_rgba(33,25,18,0.12)] backdrop-blur-md">
+              <p className="island-kicker mb-2">New Orleans</p>
+              <p className="m-0 text-sm leading-6 text-[var(--sea-ink-soft)]">
+                A polished neighborhood retreat for aesthetics, recovery, and
+                whole-body wellness.
+              </p>
+            </div>
           </div>
-          <div className="island-shell rounded-[1.75rem] p-6 sm:p-8">
-            <p className="island-kicker mb-3">About ReNu</p>
+          <div className="lg:pl-8">
+            <p className="island-kicker mb-4">About ReNu</p>
             <h2
               id="about-heading"
-              className="display-title mb-4 text-4xl font-semibold text-[var(--sea-ink)] sm:text-6xl"
+              className="display-title mb-6 text-5xl leading-none font-semibold text-[var(--sea-ink)] sm:text-7xl"
             >
-              Where health meets beauty.
+              Clinical confidence, softened by hospitality.
             </h2>
-            <p className="m-0 text-base leading-8 text-[var(--sea-ink-soft)] sm:text-lg">
-              At ReNu Health and Wellness, experienced licensed healthcare
-              professionals bring clinical expertise, compassion, and innovation
-              together to deliver exceptional results tailored to your goals.
-              Whether you are refreshing your skin, sculpting your body,
-              jumpstarting weight loss, or recharging your well-being, ReNu
-              offers trusted guidance in a relaxing spa environment.
-            </p>
+            <div className="space-y-5 text-base leading-8 text-[var(--sea-ink-soft)] sm:text-lg">
+              <p>
+                ReNu Health and Wellness was created for guests who want expert
+                guidance without a cold clinical experience. Licensed healthcare
+                professionals pair medical aesthetics, wellness therapies, and
+                skin renewal with clear education and a calm hand.
+              </p>
+              <p>
+                Whether you are refreshing your skin, sculpting your body,
+                jumpstarting weight loss, or restoring energy, each visit is
+                centered around your goals and your comfort.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -185,92 +236,106 @@ function App() {
       <section
         id="services"
         aria-labelledby="services-heading"
-        className="scroll-mt-28 pt-16"
+        className="scroll-mt-28 bg-[var(--charcoal)] py-20 text-[var(--cream)] lg:py-28"
       >
-        <div className="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-          <div>
-            <p className="island-kicker mb-3">Our Services</p>
-            <h2
-              id="services-heading"
-              className="display-title m-0 text-4xl font-semibold text-[var(--sea-ink)] sm:text-6xl"
-            >
-              Wellness and aesthetics, tailored to you.
-            </h2>
+        <div className="page-wrap px-4">
+          <div className="mb-12 grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+            <div>
+              <p className="island-kicker mb-4 text-[var(--gold-soft)]">
+                Our Services
+              </p>
+              <h2
+                id="services-heading"
+                className="display-title m-0 text-5xl leading-none font-semibold sm:text-7xl"
+              >
+                Subtle aesthetics and restorative wellness, tailored to you.
+              </h2>
+            </div>
+            <p className="m-0 max-w-2xl text-base leading-8 text-[rgba(255,247,232,0.72)] sm:text-lg">
+              Choose a focused treatment or begin with a consultation. ReNu
+              brings together injectables, skin health, hydration, metabolic
+              support, and longevity-focused therapies in one serene setting.
+            </p>
           </div>
+
+          <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+            <article className="overflow-hidden rounded-[2rem] border border-[rgba(211,167,92,0.28)] bg-[rgba(255,247,232,0.06)] p-3">
+              <img
+                src={images.services}
+                alt="ReNu provider preparing an aesthetics treatment."
+                className="h-full min-h-[420px] w-full rounded-[1.55rem] object-cover"
+                loading="lazy"
+              />
+            </article>
+            <div className="grid gap-px overflow-hidden rounded-[2rem] border border-[rgba(211,167,92,0.22)] bg-[rgba(211,167,92,0.18)] sm:grid-cols-2">
+              {services.map((service, index) => (
+                <article
+                  key={service.title}
+                  className="bg-[var(--charcoal)] p-6 transition hover:bg-[rgba(255,247,232,0.06)] sm:p-7"
+                >
+                  <p className="island-kicker mb-5 text-[var(--gold-soft)]">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="display-title mb-3 text-3xl font-semibold text-[var(--cream)]">
+                    {service.title}
+                  </h3>
+                  <p className="m-0 text-sm leading-7 text-[rgba(255,247,232,0.68)]">
+                    {service.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+
           <a
             href={BOOK_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full border border-[rgba(198,155,79,0.36)] bg-[rgba(198,155,79,0.12)] px-5 py-2.5 text-center text-xs font-bold uppercase tracking-[0.16em] text-[var(--lagoon-deep)] no-underline transition hover:-translate-y-0.5 hover:bg-[rgba(198,155,79,0.2)]"
+            className="mt-10 inline-flex rounded-full border border-[rgba(211,167,92,0.48)] bg-[var(--cream)] px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] text-[var(--charcoal)] no-underline shadow-[0_18px_42px_rgba(0,0,0,0.2)] hover:-translate-y-0.5 hover:bg-[var(--gold-soft)] hover:text-[var(--charcoal)]"
           >
             Book a Consultation
           </a>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <article className="island-shell feature-card overflow-hidden rounded-2xl sm:col-span-2 lg:col-span-1">
-            <img
-              src={images.services}
-              alt="ReNu provider preparing an aesthetics treatment."
-              className="h-64 w-full object-cover"
-              loading="lazy"
-            />
-          </article>
-          {services.map((service, index) => (
-            <article
-              key={service.title}
-              className="island-shell feature-card rise-in rounded-2xl p-5"
-              style={{ animationDelay: `${index * 55 + 90}ms` }}
-            >
-              <p className="island-kicker mb-3">0{index + 1}</p>
-              <h3 className="display-title mb-3 text-2xl font-semibold text-[var(--sea-ink)]">
-                {service.title}
-              </h3>
-              <p className="m-0 text-sm leading-7 text-[var(--sea-ink-soft)]">
-                {service.description}
-              </p>
-            </article>
-          ))}
         </div>
       </section>
 
       <section
         id="membership"
         aria-labelledby="membership-heading"
-        className="scroll-mt-28 pt-16"
+        className="page-wrap scroll-mt-28 px-4 py-20 lg:py-28"
       >
-        <div className="island-shell grid overflow-hidden rounded-[1.75rem] lg:grid-cols-[0.92fr_1.08fr]">
+        <div className="island-shell grid overflow-hidden rounded-[2rem] lg:grid-cols-[0.92fr_1.08fr]">
           <img
             src={images.membership}
             alt="A ReNu treatment room prepared for a guest."
-            className="h-full min-h-72 w-full object-cover"
+            className="h-full min-h-80 w-full object-cover"
             loading="lazy"
           />
-          <div className="p-6 sm:p-9">
-            <p className="island-kicker mb-3">Ultimate Membership</p>
+          <div className="p-7 sm:p-10 lg:p-12">
+            <p className="island-kicker mb-4">Ultimate Membership</p>
             <h2
               id="membership-heading"
-              className="display-title mb-4 text-4xl font-semibold text-[var(--sea-ink)] sm:text-6xl"
+              className="display-title mb-5 text-5xl leading-none font-semibold text-[var(--sea-ink)] sm:text-7xl"
             >
-              The art of consistent beauty, elevated.
+              Consistent care, curated like a ritual.
             </h2>
-            <p className="mb-5 text-base leading-8 text-[var(--sea-ink-soft)]">
-              ReNu Me Ultimate Membership delivers personalized treatments,
-              luxury skincare benefits, VIP pricing, and monthly care curated to
-              keep you glowing year-round.
+            <p className="mb-8 text-base leading-8 text-[var(--sea-ink-soft)] sm:text-lg">
+              ReNu Me Ultimate Membership brings together regular treatments,
+              skincare benefits, VIP pricing, and priority access so your care
+              plan feels effortless year-round.
             </p>
-            <ul className="mb-7 grid gap-2 pl-5 text-sm leading-7 text-[var(--sea-ink-soft)] sm:grid-cols-2">
-              <li>VIP Tox and IV therapy pricing</li>
-              <li>10% off medical-grade skincare</li>
-              <li>
-                Monthly facial, peel, microneedling, brow, or lash service
-              </li>
-              <li>Priority access to member-only offers</li>
+            <ul className="mb-9 grid gap-3 p-0 text-sm leading-7 text-[var(--sea-ink-soft)] sm:grid-cols-2">
+              {membershipBenefits.map((benefit) => (
+                <li key={benefit} className="flex gap-3">
+                  <span className="mt-3 h-px w-5 flex-none bg-[var(--gold)]" />
+                  <span>{benefit}</span>
+                </li>
+              ))}
             </ul>
             <a
               href={MEMBERSHIP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex rounded-full border border-[rgba(198,155,79,0.42)] bg-[var(--sea-ink)] px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] text-white no-underline transition hover:-translate-y-0.5 hover:border-[rgba(198,155,79,0.75)] hover:bg-[var(--lagoon-deep)] hover:text-white"
+              className="button-primary"
             >
               Join Now for $250/mo.
             </a>
@@ -278,35 +343,35 @@ function App() {
         </div>
       </section>
 
-      <section className="grid scroll-mt-28 gap-5 pt-16 lg:grid-cols-2">
+      <section className="page-wrap grid scroll-mt-28 gap-5 px-4 lg:grid-cols-2">
         <article
           id="shop"
           aria-labelledby="shop-heading"
-          className="island-shell overflow-hidden rounded-[1.75rem]"
+          className="island-shell overflow-hidden rounded-[2rem]"
         >
           <img
             src={images.shop}
             alt="ReNu skincare and wellness brand graphic."
-            className="h-64 w-full object-cover"
+            className="h-72 w-full object-cover"
             loading="lazy"
           />
-          <div className="p-6 sm:p-8">
+          <div className="p-7 sm:p-9">
             <p className="island-kicker mb-3">Shop</p>
             <h2
               id="shop-heading"
-              className="display-title mb-3 text-4xl font-semibold text-[var(--sea-ink)]"
+              className="display-title mb-3 text-5xl leading-none font-semibold text-[var(--sea-ink)]"
             >
               Extend your glow at home.
             </h2>
-            <p className="mb-6 leading-7 text-[var(--sea-ink-soft)]">
-              Shop ReNu wellness and skincare offerings through the online
-              store.
+            <p className="mb-7 leading-7 text-[var(--sea-ink-soft)]">
+              Shop ReNu wellness and skincare offerings selected to support your
+              in-spa results.
             </p>
             <a
               href={SHOP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-[rgba(57,38,23,0.18)] bg-white/55 px-5 py-2.5 text-xs font-bold uppercase tracking-[0.16em] text-[var(--sea-ink)] no-underline transition hover:-translate-y-0.5 hover:border-[rgba(198,155,79,0.55)] hover:bg-white/85"
+              className="button-secondary"
             >
               Shop ReNu
             </a>
@@ -316,30 +381,35 @@ function App() {
         <article
           id="instagram"
           aria-labelledby="instagram-heading"
-          className="island-shell rounded-[1.75rem] p-6 sm:p-8"
+          className="island-shell flex flex-col justify-between rounded-[2rem] p-7 sm:p-9"
         >
-          <img
-            src={logoUrl}
-            alt="ReNu Nola logo"
-            className="mb-8 h-24 w-auto rounded-2xl border border-[rgba(198,155,79,0.22)] bg-white/75 object-contain p-3"
-            loading="lazy"
-          />
-          <p className="island-kicker mb-3">Instagram</p>
-          <h2
-            id="instagram-heading"
-            className="display-title mb-3 text-4xl font-semibold text-[var(--sea-ink)]"
-          >
-            Follow the latest from ReNu.
-          </h2>
-          <p className="mb-6 leading-7 text-[var(--sea-ink-soft)]">
-            See treatment highlights, skincare education, announcements, and a
-            closer look inside the ReNu experience.
-          </p>
+          <div>
+            <img
+              src={logoUrl}
+              alt="ReNu Health and Wellness logo"
+              className="mb-10 h-28 w-auto rounded-[1.5rem] bg-[rgba(255,247,232,0.74)] object-contain p-4"
+              loading="lazy"
+            />
+            <p className="island-kicker mb-3 inline-flex items-center gap-2">
+              <InstagramIcon />
+              <span className="sr-only">Instagram</span>
+            </p>
+            <h2
+              id="instagram-heading"
+              className="display-title mb-3 text-5xl leading-none font-semibold text-[var(--sea-ink)]"
+            >
+              A closer look inside ReNu.
+            </h2>
+            <p className="mb-7 leading-7 text-[var(--sea-ink-soft)]">
+              Follow treatment highlights, skincare education, announcements,
+              and the atmosphere behind the ReNu experience.
+            </p>
+          </div>
           <a
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full border border-[rgba(198,155,79,0.36)] bg-[rgba(198,155,79,0.12)] px-5 py-2.5 text-xs font-bold uppercase tracking-[0.16em] text-[var(--lagoon-deep)] no-underline transition hover:-translate-y-0.5 hover:bg-[rgba(198,155,79,0.2)]"
+            className="button-secondary self-start"
           >
             Follow @renunola
           </a>
@@ -349,34 +419,31 @@ function App() {
       <section
         id="contact"
         aria-labelledby="contact-heading"
-        className="scroll-mt-28 pt-16"
+        className="page-wrap scroll-mt-28 px-4 py-20 lg:py-28"
       >
-        <div className="island-shell rounded-[1.75rem] p-6 sm:p-8">
-          <div className="mb-7 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+        <div className="rounded-[2.25rem] bg-[var(--cream)] p-7 shadow-[0_28px_80px_rgba(33,25,18,0.12)] sm:p-10 lg:p-12">
+          <div className="mb-9 grid gap-5 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
-              <p className="island-kicker mb-3">Visit Us and Connect</p>
+              <p className="island-kicker mb-4">Visit Us and Connect</p>
               <h2
                 id="contact-heading"
-                className="display-title m-0 text-4xl font-semibold text-[var(--sea-ink)] sm:text-6xl"
+                className="display-title m-0 max-w-3xl text-5xl leading-none font-semibold text-[var(--sea-ink)] sm:text-7xl"
               >
-                Ready to renew your confidence?
+                Ready to feel renewed with care that feels personal?
               </h2>
             </div>
             <a
               href={BOOK_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-[rgba(198,155,79,0.42)] bg-[var(--sea-ink)] px-6 py-3 text-center text-xs font-bold uppercase tracking-[0.18em] text-white no-underline transition hover:-translate-y-0.5 hover:border-[rgba(198,155,79,0.75)] hover:bg-[var(--lagoon-deep)] hover:text-white"
+              className="button-primary"
             >
               Book Online
             </a>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-px overflow-hidden rounded-[1.5rem] border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-4">
             {contactItems.map(([label, primary, secondary]) => (
-              <div
-                key={label}
-                className="rounded-2xl border border-[var(--line)] bg-white/45 p-5 shadow-[0_1px_0_rgba(255,255,255,0.65)_inset]"
-              >
+              <div key={label} className="bg-[var(--foam)] p-6">
                 <p className="island-kicker mb-3">{label}</p>
                 {secondary?.startsWith("tel:") ||
                 secondary?.startsWith("mailto:") ? (
