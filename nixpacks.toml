@@ -1,3 +1,0 @@
-[variables]
-VITE_GIT_HOOKS = "0"
-HUSKY = "0"
