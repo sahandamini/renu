@@ -1,6 +1,7 @@
 const BOOK_URL = "https://renunola.janeapp.com/";
 const SHOP_URL = "https://shop.renunola.instapaytient.com/";
 const INSTAGRAM_URL = "https://www.instagram.com/renunola";
+const MAPS_URL = "https://maps.app.goo.gl/iE24qBXC1NFKLW2x6";
 const LOGO_URL = "/assets/brand/renu-logo-clear.webp";
 
 function InstagramIcon() {
@@ -43,8 +44,15 @@ export default function Footer() {
 
 				<address className="not-italic text-sm leading-7">
 					<p className="m-0 mb-2 font-bold text-[var(--cream)]">Visit Us</p>
-					<p className="m-0">6312 Argonne Blvd.</p>
-					<p className="m-0">New Orleans, LA 70124</p>
+					<a
+						href={MAPS_URL}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="block no-underline"
+					>
+						<span className="block">6312 Argonne Blvd.</span>
+						<span className="block">New Orleans, LA 70124</span>
+					</a>
 					<p className="m-0 mt-3">10am-6pm CDT, Mon - Sat</p>
 					<a href="tel:+15046099776" className="mt-3 block no-underline">
 						504-609-9776

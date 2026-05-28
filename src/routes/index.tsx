@@ -6,6 +6,7 @@ const BOOK_URL = "https://renunola.janeapp.com/";
 const MEMBERSHIP_URL =
 	"https://shop.renunola.instapaytient.com/shop/renu-me-membership";
 const INSTAGRAM_URL = "https://www.instagram.com/renunola";
+const MAPS_URL = "https://maps.app.goo.gl/iE24qBXC1NFKLW2x6";
 
 const logoUrl = "/assets/brand/renu-logo-clear.webp";
 
@@ -78,7 +79,7 @@ const membershipBenefits = [
 ];
 
 const contactItems = [
-	["Visit", "6312 Argonne Blvd.", "New Orleans, LA 70124"],
+	["Visit", "6312 Argonne Blvd.", "New Orleans, LA 70124", MAPS_URL],
 	["Hours", "10am-6pm CDT", "Monday - Saturday"],
 	["Call", "504-609-9776", "tel:+15046099776"],
 	["Email", "nhu@renunola.com", "mailto:nhu@renunola.com"],
@@ -428,11 +429,21 @@ function App() {
 						</a>
 					</div>
 					<div className="grid gap-px overflow-hidden rounded-[1.5rem] border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-4">
-						{contactItems.map(([label, primary, secondary]) => (
+						{contactItems.map(([label, primary, secondary, href]) => (
 							<div key={label} className="bg-[var(--foam)] p-6">
 								<p className="island-kicker mb-3">{label}</p>
-								{secondary?.startsWith("tel:") ||
-								secondary?.startsWith("mailto:") ? (
+								{href ? (
+									<a
+										href={href}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="block"
+									>
+										<span className="block text-base font-bold">{primary}</span>
+										<span className="mt-1 block text-sm">{secondary}</span>
+									</a>
+								) : secondary?.startsWith("tel:") ||
+								  secondary?.startsWith("mailto:") ? (
 									<a
 										href={secondary}
 										className="text-base font-bold text-[var(--sea-ink)] no-underline"
@@ -444,7 +455,8 @@ function App() {
 										{primary}
 									</p>
 								)}
-								{!secondary?.startsWith("tel:") &&
+								{!href &&
+								!secondary?.startsWith("tel:") &&
 								!secondary?.startsWith("mailto:") ? (
 									<p className="m-0 mt-1 text-sm text-[var(--sea-ink-soft)]">
 										{secondary}
