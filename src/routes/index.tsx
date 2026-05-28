@@ -3,7 +3,6 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/")({ component: App });
 
 const BOOK_URL = "https://renunola.janeapp.com/";
-const SHOP_URL = "https://shop.renunola.instapaytient.com/";
 const MEMBERSHIP_URL =
   "https://shop.renunola.instapaytient.com/shop/renu-me-membership";
 const INSTAGRAM_URL = "https://www.instagram.com/renunola";
@@ -12,7 +11,7 @@ const logoUrl = "/assets/brand/renu-logo-clear.webp";
 
 const images = {
   hero: "/assets/brand/hero-provider.jpg",
-  treatment: "/assets/brand/consultation.jpg",
+  treatment: "/assets/brand/about-treatment.png",
   services: "/assets/brand/services-treatment.jpg",
   membership: "/assets/brand/membership-room.jpg",
   shop: "/assets/brand/shop-wellness.png",
@@ -21,16 +20,16 @@ const images = {
 
 const trustHighlights = [
   {
-    value: "Licensed care",
-    label: "Treatments guided by experienced medical professionals.",
+    value: "Licensed medical professionals",
+    label: "Trusted guidance from experienced healthcare professionals.",
   },
   {
-    value: "Tailored plans",
-    label: "Aesthetic and wellness recommendations built around you.",
+    value: "Personalized treatment plans",
+    label: "Care designed around your health, lifestyle, and goals.",
   },
   {
-    value: "Boutique setting",
-    label: "A calm New Orleans destination designed for comfort.",
+    value: "New Orleans wellness destination",
+    label: "A relaxing spa environment for looking and feeling your best.",
   },
 ];
 
@@ -38,17 +37,17 @@ const services = [
   {
     title: "Neuro Modulators",
     description:
-      "Soften expression lines with precise dosing and natural-looking movement.",
+      "Refine expression lines with thoughtful dosing and natural-looking results.",
   },
   {
     title: "Weight Loss",
     description:
-      "Clinically guided programs shaped around your health, habits, and goals.",
+      "Clinically guided plans built around your health, lifestyle, and goals.",
   },
   {
     title: "IV Therapy",
     description:
-      "Hydration and vitamin infusions to support energy, recovery, and balance.",
+      "Hydration and vitamin infusions designed to support energy and recovery.",
   },
   {
     title: "NAD Therapy",
@@ -56,19 +55,18 @@ const services = [
       "Restorative wellness support for vitality, focus, and whole-body renewal.",
   },
   {
-    title: "Dermal Fillers",
+    title: "Derma Fillers",
     description:
       "Subtle balancing and contouring to enhance your natural features.",
   },
   {
     title: "Wellness Injections",
-    description:
-      "Targeted boosters selected for the way you want to feel and function.",
+    description: "Targeted wellness boosters tailored to how you want to feel.",
   },
   {
-    title: "Skin Treatments",
+    title: "Esthetician Services",
     description:
-      "Facials, peels, microneedling, brows, lashes, and thoughtful skin renewal.",
+      "Facials, peels, microneedling, brows, lashes, and skin renewal services.",
   },
 ];
 
@@ -115,17 +113,14 @@ function App() {
               alt="ReNu Health and Wellness logo"
               className="mb-8 h-28 w-auto rounded-[1.5rem] bg-[rgba(255,247,232,0.78)] object-contain p-4 shadow-[0_18px_50px_rgba(33,25,18,0.1)] sm:h-32"
             />
-            <p className="island-kicker mb-4">
-              Medical aesthetics and wellness
-            </p>
+            <p className="island-kicker mb-4">ReNu Health and Wellness</p>
             <h1 className="display-title mb-6 text-6xl leading-[0.88] font-semibold text-[var(--sea-ink)] sm:text-7xl lg:text-8xl">
-              A private wellness destination for refined renewal.
+              Where Health Meets Beauty
             </h1>
             <p className="max-w-2xl text-base leading-8 text-[var(--sea-ink-soft)] sm:text-lg">
-              ReNu blends medical expertise with a serene, boutique spa
-              experience in New Orleans. Every treatment plan is personal,
-              thoughtful, and designed to help you look refreshed while feeling
-              cared for.
+              At ReNu Health and Wellness, we believe in more than just
+              enhancing your appearance — we’re here to help you look and feel
+              your best from the inside out.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
@@ -137,7 +132,7 @@ function App() {
                 Book Online
               </a>
               <a href="#services" className="button-secondary">
-                Explore Services
+                Discover the ReNu Difference
               </a>
             </div>
           </div>
@@ -147,14 +142,14 @@ function App() {
               <img
                 src={images.hero}
                 alt="A ReNu Health and Wellness provider in the spa."
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover object-[52%_0%]"
               />
             </div>
             <div className="island-shell absolute bottom-0 left-0 w-[66%] overflow-hidden rounded-[2rem] p-2 sm:w-[54%]">
               <img
                 src={images.treatment}
-                alt="A ReNu provider consulting with a guest in a treatment room."
-                className="h-64 w-full rounded-[1.55rem] object-cover sm:h-80"
+                alt="ReNu wellness treatment details in a calm spa setting."
+                className="h-64 w-full rounded-[1.55rem] object-cover object-top sm:h-80"
                 loading="lazy"
               />
             </div>
@@ -203,8 +198,7 @@ function App() {
             <div className="absolute -bottom-6 left-6 right-6 rounded-[1.25rem] border border-[rgba(211,167,92,0.34)] bg-[rgba(255,251,244,0.88)] p-5 shadow-[0_18px_46px_rgba(33,25,18,0.12)] backdrop-blur-md">
               <p className="island-kicker mb-2">New Orleans</p>
               <p className="m-0 text-sm leading-6 text-[var(--sea-ink-soft)]">
-                A polished neighborhood retreat for aesthetics, recovery, and
-                whole-body wellness.
+                Trusted guidance in a relaxing spa environment.
               </p>
             </div>
           </div>
@@ -214,19 +208,16 @@ function App() {
               id="about-heading"
               className="display-title mb-6 text-5xl leading-none font-semibold text-[var(--sea-ink)] sm:text-7xl"
             >
-              Clinical confidence, softened by hospitality.
+              About ReNu
             </h2>
             <div className="space-y-5 text-base leading-8 text-[var(--sea-ink-soft)] sm:text-lg">
               <p>
-                ReNu Health and Wellness was created for guests who want expert
-                guidance without a cold clinical experience. Licensed healthcare
-                professionals pair medical aesthetics, wellness therapies, and
-                skin renewal with clear education and a calm hand.
-              </p>
-              <p>
-                Whether you are refreshing your skin, sculpting your body,
-                jumpstarting weight loss, or restoring energy, each visit is
-                centered around your goals and your comfort.
+                At ReNu Health and Wellness, we believe in more than just
+                enhancing your appearance — we’re here to help you look and feel
+                your best from the inside out. As a team of experienced,
+                licensed healthcare professionals, we bring clinical expertise,
+                compassion, and innovation together to deliver exceptional
+                results tailored to your unique goals.
               </p>
             </div>
           </div>
@@ -248,13 +239,13 @@ function App() {
                 id="services-heading"
                 className="display-title m-0 text-5xl leading-none font-semibold sm:text-7xl"
               >
-                Subtle aesthetics and restorative wellness, tailored to you.
+                Our Services
               </h2>
             </div>
             <p className="m-0 max-w-2xl text-base leading-8 text-[rgba(255,247,232,0.72)] sm:text-lg">
-              Choose a focused treatment or begin with a consultation. ReNu
-              brings together injectables, skin health, hydration, metabolic
-              support, and longevity-focused therapies in one serene setting.
+              ReNu brings together personalized aesthetics, wellness therapies,
+              and skin renewal services designed to help you look refreshed and
+              feel your best.
             </p>
           </div>
 
@@ -271,7 +262,7 @@ function App() {
               {services.map((service, index) => (
                 <article
                   key={service.title}
-                  className="bg-[var(--charcoal)] p-6 transition hover:bg-[rgba(255,247,232,0.06)] sm:p-7"
+                  className={`bg-[var(--charcoal)] p-6 transition hover:bg-[rgba(255,247,232,0.06)] sm:p-7 ${index === services.length - 1 ? "sm:col-span-2" : ""}`}
                 >
                   <p className="island-kicker mb-5 text-[var(--gold-soft)]">
                     {String(index + 1).padStart(2, "0")}
@@ -316,12 +307,12 @@ function App() {
               id="membership-heading"
               className="display-title mb-5 text-5xl leading-none font-semibold text-[var(--sea-ink)] sm:text-7xl"
             >
-              Consistent care, curated like a ritual.
+              The art of consistent beauty, elevated.
             </h2>
             <p className="mb-8 text-base leading-8 text-[var(--sea-ink-soft)] sm:text-lg">
-              ReNu Me Ultimate Membership brings together regular treatments,
-              skincare benefits, VIP pricing, and priority access so your care
-              plan feels effortless year-round.
+              ReNu Me Ultimate Membership delivers personalized treatments,
+              luxury skincare benefits, VIP pricing, and monthly care curated to
+              keep you glowing year-round.
             </p>
             <ul className="mb-9 grid gap-3 p-0 text-sm leading-7 text-[var(--sea-ink-soft)] sm:grid-cols-2">
               {membershipBenefits.map((benefit) => (
@@ -361,19 +352,14 @@ function App() {
               id="shop-heading"
               className="display-title mb-3 text-5xl leading-none font-semibold text-[var(--sea-ink)]"
             >
-              Extend your glow at home.
+              Reveal Your Radiant Beauty
             </h2>
             <p className="mb-7 leading-7 text-[var(--sea-ink-soft)]">
-              Shop ReNu wellness and skincare offerings selected to support your
-              in-spa results.
+              Get started with personalized care designed to help you look and
+              feel your best.
             </p>
-            <a
-              href={SHOP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="button-secondary"
-            >
-              Shop ReNu
+            <a href="#contact" className="button-secondary">
+              Get Started
             </a>
           </div>
         </article>
@@ -398,11 +384,11 @@ function App() {
               id="instagram-heading"
               className="display-title mb-3 text-5xl leading-none font-semibold text-[var(--sea-ink)]"
             >
-              A closer look inside ReNu.
+              Follow the latest from ReNu.
             </h2>
             <p className="mb-7 leading-7 text-[var(--sea-ink-soft)]">
-              Follow treatment highlights, skincare education, announcements,
-              and the atmosphere behind the ReNu experience.
+              See treatment highlights, skincare education, announcements, and a
+              closer look inside the ReNu experience.
             </p>
           </div>
           <a
@@ -429,7 +415,7 @@ function App() {
                 id="contact-heading"
                 className="display-title m-0 max-w-3xl text-5xl leading-none font-semibold text-[var(--sea-ink)] sm:text-7xl"
               >
-                Ready to feel renewed with care that feels personal?
+                Visit Us & Connect
               </h2>
             </div>
             <a
